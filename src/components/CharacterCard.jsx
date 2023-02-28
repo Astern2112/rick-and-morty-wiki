@@ -23,7 +23,7 @@ const CharacterCard = ({ character }) => {
       </div>
       <div className="ml-2 flex w-3/4 flex-col justify-between gap-0 py-3">
         <div>
-          <h2 className=" text-2xl font-bold hover:text-orange-500">
+          <h2 className=" max-w-fit text-2xl font-bold hover:text-orange-500">
             <Link to={`${character.url}`}>{character.name}</Link>
           </h2>
           <p className="font-medium ">

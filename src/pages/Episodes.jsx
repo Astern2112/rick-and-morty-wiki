@@ -44,7 +44,7 @@ function Episodes() {
   function renderEpisodes(arr, season) {
     return (
       <div>
-        <h3 className="mb-3 text-2xl font-bold text-white">Season {season}</h3>
+        <h3 className="my-3 text-2xl font-bold text-white">Season {season}</h3>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {arr
             .filter((episode) => {
@@ -60,7 +60,7 @@ function Episodes() {
 
   return (
     <div className="min-h-screen bg-gray-800 py-8 px-10">
-      <h1 className="mb-10 text-4xl font-bold text-white">Episodes</h1>
+      <h1 className="mb-10 text-3xl font-bold text-white">Episodes</h1>
 
       {renderEpisodes(episodes, 1)}
       {renderEpisodes(episodes, 2)}

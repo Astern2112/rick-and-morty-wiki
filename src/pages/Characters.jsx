@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import CharacterCard from '../components/CharacterCard';
-function CharacterPage() {
+
+function Characters() {
   const [page, setPage] = useState(1);
   const { isLoading, error, data } = useQuery(['characters', page], () =>
     axios(`https://rickandmortyapi.com/api/character?page=${page}`).then(
@@ -37,9 +38,9 @@ function CharacterPage() {
   }
 
   return (
-    <div className=" bg-gray-800 py-8 px-20">
+    <div className="bg-gray-800 py-8 px-10">
       <h1 className="pb-3 text-3xl font-bold text-white">Characters</h1>
-      <form onSubmit={handlePageChange} className="mb-4">
+      <form onSubmit={handlePageChange} className="mb-4 flex items-center">
         <label htmlFor="page" className="mr-2 text-white">
           Go to page:
         </label>
@@ -50,7 +51,7 @@ function CharacterPage() {
           min="1"
           max={data.info.pages}
           defaultValue={page}
-          className="rounded-md bg-gray-700 py-2 px-3 text-white"
+          className="w-16 rounded-md bg-gray-700 py-2 px-3 text-white"
         />
         <button
           type="submit"
@@ -61,7 +62,9 @@ function CharacterPage() {
       </form>
       <div className="grid grid-cols-1 gap-10 xl:grid-cols-2">
         {data.results.map((character) => (
-          <CharacterCard key={character.id} character={character} />
+          <div key={character.id} className="rounded-lg bg-gray-700 shadow-lg">
+            <CharacterCard character={character} />
+          </div>
         ))}
       </div>
       <div className="mt-4 flex items-center justify-center gap-4">
@@ -85,4 +88,4 @@ function CharacterPage() {
   );
 }
 
-export default CharacterPage;
+export default Characters;
