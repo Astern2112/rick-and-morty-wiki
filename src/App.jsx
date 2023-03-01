@@ -6,8 +6,7 @@ import Header from './components/Header';
 import Characters from './pages/Characters';
 import Episodes from './pages/Episodes';
 import Locations from './pages/Locations';
-import Quotes from './pages/Quotes';
-import Trivia from './pages/Trivia';
+
 function App() {
   const queryClient = new QueryClient();
 
@@ -21,8 +20,6 @@ function App() {
             <Route path="/characters" element={<Characters />} />
             <Route path="/episodes" element={<Episodes />} />
             <Route path="/locations" element={<Locations />} />
-            <Route path="/quotes" element={<Quotes />} />
-            <Route path="/trivia" element={<Trivia />} />
           </Routes>
           <ReactQueryDevtools initialIsOpen={false} />
         </Router>
