@@ -19,7 +19,7 @@ const CharacterCard = ({ character }) => {
   };
 
   return (
-    <div className="flex flex-col overflow-hidden rounded-lg bg-gray-700  text-white shadow-lg sm:flex-row xl:w-full">
+    <div className="flex flex-col overflow-hidden rounded-lg bg-gray-800  text-white shadow-lg sm:flex-row xl:w-full">
       <div className="sm:mr-3">
         <img
           className=" aspect-square w-full"
