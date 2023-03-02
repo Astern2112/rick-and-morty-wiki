@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import CharacterMiniCard from '../components/CharacterMiniCard';
 import Loading from '../components/Loading';
+import Error from '../components/Error';
 
 const Episode = () => {
   const { id } = useParams();
@@ -18,7 +19,7 @@ const Episode = () => {
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <Error message={error.message} />;
   }
 
   const { name, air_date, episode, characters, created } = data;

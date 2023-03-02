@@ -3,6 +3,7 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import CharacterCard from '../components/CharacterCard';
 import Loading from '../components/Loading';
+import Error from '../components/Error';
 
 function Characters() {
   const [page, setPage] = useState(1);
@@ -35,7 +36,7 @@ function Characters() {
   }
 
   if (error) {
-    return <div>Error fetching characters: {error.message}</div>;
+    return <Error message={error.message} />;
   }
 
   return (

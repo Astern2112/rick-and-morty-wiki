@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import Loading from '../components/Loading';
+import Error from '../components/Error';
 
 const Character = () => {
   const { id } = useParams();
@@ -30,7 +31,7 @@ const Character = () => {
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <Error message={error.message} />;
   }
 
   const {

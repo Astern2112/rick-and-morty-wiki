@@ -3,6 +3,7 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import LocationCard from '../components/LocationCard';
 import Loading from '../components/Loading';
+import Error from '../components/Error';
 
 function Locations() {
   const [page, setPage] = useState(1);
@@ -36,7 +37,7 @@ function Locations() {
   }
 
   if (error) {
-    return <div>Error fetching characters: {error.message}</div>;
+    return <Error message={error.message} />;
   }
 
   return (
@@ -58,7 +59,7 @@ function Locations() {
         />
         <button
           type="submit"
-          className="ml-2 rounded-md bg-blue-600 px-4 py-2 text-white"
+          className="ml-2 rounded-md bg-purple-900 px-4 py-2 text-white hover:bg-purple-700"
         >
           Go
         </button>
@@ -72,7 +73,7 @@ function Locations() {
 
       <div className="mt-4 flex items-center justify-center gap-4">
         <button
-          className="rounded-md bg-blue-600 px-4 py-2 text-white disabled:cursor-not-allowed disabled:bg-gray-400"
+          className="rounded-md bg-purple-900 px-4 py-2 text-white hover:bg-purple-700 disabled:cursor-not-allowed disabled:bg-gray-400"
           onClick={handlePrevPage}
           disabled={!data.info.prev}
         >
@@ -80,7 +81,7 @@ function Locations() {
         </button>
         <div className="text-xl font-bold text-white">{page}</div>
         <button
-          className="rounded-md bg-blue-600 px-4 py-2 text-white disabled:cursor-not-allowed disabled:bg-gray-400"
+          className="rounded-md bg-purple-900 px-4 py-2 text-white hover:bg-purple-700 disabled:cursor-not-allowed disabled:bg-gray-400"
           onClick={handleNextPage}
           disabled={!data.info.next}
         >

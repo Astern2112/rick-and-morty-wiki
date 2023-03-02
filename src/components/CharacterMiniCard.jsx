@@ -3,6 +3,7 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Loading from './Loading';
+import Error from './Error';
 
 const CharacterMiniCard = ({ id }) => {
   const naviate = useNavigate();
@@ -22,7 +23,7 @@ const CharacterMiniCard = ({ id }) => {
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <Error message={error.message} />;
   }
 
   const { name, image } = data;

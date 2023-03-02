@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import Loading from '../components/Loading';
+import Error from '../components/Error';
 import CharacterMiniCard from '../components/CharacterMiniCard';
 
 const Location = () => {
@@ -19,7 +20,7 @@ const Location = () => {
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <Error message={error.message} />;
   }
 
   const { name, type, dimension, residents } = data;
