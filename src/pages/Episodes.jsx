@@ -61,7 +61,6 @@ function Episodes() {
   return (
     <div className="min-h-screen bg-gray-900 py-8 px-10">
       <h1 className="mb-10 text-3xl font-bold text-white">Episodes</h1>
-
       {renderEpisodes(episodes, 1)}
       {renderEpisodes(episodes, 2)}
       {renderEpisodes(episodes, 3)}

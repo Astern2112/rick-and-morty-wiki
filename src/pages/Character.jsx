@@ -1,16 +1,21 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 
 const Character = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+
+  const handleEpisodeNavigate = (episodeNo) => {
+    navigate(`/episodes/${episodeNo}`);
+  };
+
   const { isLoading, error, data } = useQuery(['character', id], () =>
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       (res) => res.data
     )
   );
-
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -60,22 +65,25 @@ const Character = () => {
             <span className="font-bold text-gray-100">Location:</span>{' '}
             {location.name}
           </p>
-          <div>
-            <p className="mb-4 text-xl text-gray-300">
-              <span className="font-bold text-gray-100">Episodes:</span>{' '}
-              {episode.length}
-            </p>
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-              {/* {episode.map((ep) => (
-              <div
-                key={ep}
-                className="rounded-lg bg-gray-700 p-2 text-center shadow-md"
-              >
-                <p className="text-lg font-bold text-gray-100">{ep}</p>
-              </div>
-            ))} */}
+        </div>
+      </div>
+      <div>
+        <p className="mb-4 text-xl text-gray-300">
+          <span className="font-bold text-gray-100">Episodes:</span>{' '}
+          {episode.length}
+        </p>
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+          {episode.map((ep) => (
+            <div
+              key={ep}
+              className="rounded-lg bg-gray-700 p-2 pl-3 text-left shadow-md hover:cursor-pointer hover:bg-gray-500"
+              onClick={() => handleEpisodeNavigate(ep.split('/').pop())}
+            >
+              <p className="text-lg font-bold text-gray-100">
+                Episode {ep.split('/').pop()}
+              </p>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
