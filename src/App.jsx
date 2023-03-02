@@ -8,6 +8,7 @@ import Episodes from './pages/Episodes';
 import Locations from './pages/Locations';
 import Character from './pages/Character';
 import Episode from './pages/Episode';
+import Location from './pages/Location';
 
 function App() {
   const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ function App() {
             <Route path="/episodes" element={<Episodes />} />
             <Route path="/episodes/:id" element={<Episode />} />
             <Route path="/locations" element={<Locations />} />
+            <Route path="/locations/:id" element={<Location />} />
           </Routes>
           <ReactQueryDevtools initialIsOpen={false} />
         </Router>

@@ -11,12 +11,20 @@ const Character = () => {
   const handleEpisodeNavigate = (episodeNo) => {
     navigate(`/episodes/${episodeNo}`);
   };
+  const handleLocationNavigate = (locationId) => {
+    navigate(`/locations/${locationId}`);
+  };
 
   const { isLoading, error, data } = useQuery(['character', id], () =>
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       (res) => res.data
     )
   );
+
+  const formatId = (url) => {
+    return url.split('/').pop();
+  };
+
   if (isLoading) {
     return <Loading />;
   }
@@ -60,11 +68,21 @@ const Character = () => {
           </p>
           <p className="mb-4 text-xl text-gray-300">
             <span className="font-bold text-gray-100">Origin:</span>{' '}
-            {origin.name}
+            <span
+              className="hover:cursor-pointer hover:text-orange-500"
+              onClick={() => handleLocationNavigate(formatId(origin.url))}
+            >
+              {origin.name}
+            </span>
           </p>
           <p className="mb-4 text-xl text-gray-300">
             <span className="font-bold text-gray-100">Location:</span>{' '}
-            {location.name}
+            <span
+              className="hover:cursor-pointer hover:text-orange-500"
+              onClick={() => handleLocationNavigate(formatId(location.url))}
+            >
+              {location.name}
+            </span>
           </p>
         </div>
       </div>
@@ -78,10 +96,10 @@ const Character = () => {
             <div
               key={ep}
               className="rounded-lg bg-gray-700 p-2 pl-3 text-left shadow-md hover:cursor-pointer hover:bg-gray-500"
-              onClick={() => handleEpisodeNavigate(ep.split('/').pop())}
+              onClick={() => handleEpisodeNavigate(formatId(ep))}
             >
               <p className="text-lg font-bold text-gray-100">
-                Episode {ep.split('/').pop()}
+                Episode {formatId(ep)}
               </p>
             </div>
           ))}

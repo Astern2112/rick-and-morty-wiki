@@ -64,7 +64,7 @@ function Locations() {
         </button>
       </form>
 
-      <div className="flex flex-wrap justify-center gap-16">
+      <div className="flex flex-wrap justify-around gap-4 ">
         {data.results.map((location, index) => (
           <LocationCard key={location.id} location={location} />
         ))}

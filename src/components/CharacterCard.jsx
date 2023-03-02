@@ -7,6 +7,13 @@ const CharacterCard = ({ character }) => {
   const handleCharacterNavigate = (id) => {
     navigate(`./${id}`);
   };
+  const handleLocationNavigate = (id) => {
+    navigate(`/locations/${id}`);
+  };
+
+  const formatId = (url) => {
+    return url.split('/').pop();
+  };
 
   const isAlive = (status) => {
     if (status === 'Alive') {
@@ -47,13 +54,23 @@ const CharacterCard = ({ character }) => {
           <p className="text-md font-medium text-slate-300">
             Last Known Location:{' '}
           </p>
-          <p className="max-w-fit text-lg font-medium hover:cursor-pointer hover:text-orange-500">
+          <p
+            className="max-w-fit text-lg font-medium hover:cursor-pointer hover:text-orange-500"
+            onClick={() =>
+              handleLocationNavigate(formatId(character.location.url))
+            }
+          >
             {character.location.name}
           </p>
         </div>
         <div>
           <p className="text-md font-medium text-slate-300">Origin: </p>
-          <p className="max-w-fit text-lg font-medium hover:cursor-pointer hover:text-orange-500 ">
+          <p
+            className="max-w-fit text-lg font-medium hover:cursor-pointer hover:text-orange-500 "
+            onClick={() =>
+              handleLocationNavigate(formatId(character.origin.url))
+            }
+          >
             {character.origin.name}
           </p>
         </div>
