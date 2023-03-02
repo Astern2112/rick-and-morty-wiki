@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Characters from './pages/Characters';
 import Episodes from './pages/Episodes';
 import Locations from './pages/Locations';
+import Character from './pages/Character';
 
 function App() {
   const queryClient = new QueryClient();
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/characters" element={<Characters />} />
+            <Route path="/characters/:id" element={<Character />} />
             <Route path="/episodes" element={<Episodes />} />
             <Route path="/locations" element={<Locations />} />
           </Routes>
