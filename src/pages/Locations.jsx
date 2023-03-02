@@ -39,7 +39,7 @@ function Locations() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-800 py-8 px-10">
+    <div className="min-h-screen bg-gray-900 py-8 px-10">
       <h1 className="pb-3 text-3xl font-bold text-white">Locations</h1>
 
       <form onSubmit={handlePageChange} className="mb-4 flex items-center">

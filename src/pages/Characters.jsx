@@ -38,7 +38,7 @@ function Characters() {
   }
 
   return (
-    <div className="bg-gray-800 py-8 px-10">
+    <div className="bg-gray-900 py-8 px-10">
       <h1 className="pb-3 text-3xl font-bold text-white">Characters</h1>
       <form onSubmit={handlePageChange} className="mb-4 flex items-center">
         <label htmlFor="page" className="mr-2 text-white">
@@ -55,7 +55,7 @@ function Characters() {
         />
         <button
           type="submit"
-          className="ml-2 rounded-md bg-blue-600 px-4 py-2 text-white"
+          className="ml-2 rounded-md bg-purple-900 px-4 py-2 text-white hover:bg-purple-700"
         >
           Go
         </button>
@@ -69,7 +69,7 @@ function Characters() {
       </div>
       <div className="mt-4 flex items-center justify-center gap-4">
         <button
-          className="rounded-md bg-blue-600 px-4 py-2 text-white disabled:cursor-not-allowed disabled:bg-gray-400"
+          className="rounded-md bg-purple-900 px-4 py-2 text-white hover:bg-purple-700 disabled:cursor-not-allowed disabled:bg-gray-400"
           onClick={handlePrevPage}
           disabled={!data.info.prev}
         >
@@ -77,7 +77,7 @@ function Characters() {
         </button>
         <div className="text-xl font-bold text-white">{page}</div>
         <button
-          className="rounded-md bg-blue-600 px-4 py-2 text-white disabled:cursor-not-allowed disabled:bg-gray-400"
+          className="rounded-md bg-purple-900 px-4 py-2 text-white hover:bg-purple-700 disabled:cursor-not-allowed disabled:bg-gray-400"
           onClick={handleNextPage}
           disabled={!data.info.next}
         >
