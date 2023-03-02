@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import CharacterMiniCard from '../components/CharacterMiniCard';
+import Loading from '../components/Loading';
 
 const Episode = () => {
   const { id } = useParams();
@@ -12,9 +13,8 @@ const Episode = () => {
       (res) => res.data
     )
   );
-
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {

@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Loading from './Loading';
 
 const CharacterMiniCard = ({ id }) => {
   const naviate = useNavigate();
@@ -17,7 +18,7 @@ const CharacterMiniCard = ({ id }) => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {

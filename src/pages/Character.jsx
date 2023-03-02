@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import axios from 'axios';
+import Loading from '../components/Loading';
 
 const Character = () => {
   const { id } = useParams();
@@ -17,7 +18,7 @@ const Character = () => {
     )
   );
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {

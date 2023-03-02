@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useQueries, useQuery } from 'react-query';
 import axios from 'axios';
 import EpisodeCard from '../components/EpisodeCard';
+import Loading from '../components/Loading';
 
 function Episodes() {
   const [episodes, setEpisodes] = useState([]);
@@ -27,7 +28,7 @@ function Episodes() {
   );
 
   if (query1.isLoading || query2.isLoading || query3.isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (query1.error || query2.error || query3.error) {

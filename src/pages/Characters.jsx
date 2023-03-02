@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import CharacterCard from '../components/CharacterCard';
+import Loading from '../components/Loading';
 
 function Characters() {
   const [page, setPage] = useState(1);
@@ -30,7 +31,7 @@ function Characters() {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {

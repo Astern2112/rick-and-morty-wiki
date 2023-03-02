@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import LocationCard from '../components/LocationCard';
+import Loading from '../components/Loading';
 
 function Locations() {
   const [page, setPage] = useState(1);
@@ -31,7 +32,7 @@ function Locations() {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {
