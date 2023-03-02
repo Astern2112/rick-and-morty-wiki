@@ -2,7 +2,7 @@ import React from 'react';
 
 const EpisodeCard = ({ episode }) => {
   return (
-    <div className="rounded-md bg-gray-900 p-5 shadow-md">
+    <div className="rounded-md bg-gray-700 p-5 shadow-md">
       <h2 className="mb-2 max-w-fit text-2xl font-bold text-white hover:cursor-pointer hover:text-orange-500">
         {episode.name}
       </h2>
