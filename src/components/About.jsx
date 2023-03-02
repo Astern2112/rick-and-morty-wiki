@@ -25,7 +25,7 @@ const About = () => {
           complex characters, and hilarious comedy.
         </p>
         <p className="text-lg">Some of the main characters include:</p>
-        <ul className="mb-6 list-disc pl-6">
+        <ul className="mb-6 max-w-fit list-disc pl-6">
           <li
             onClick={() => handleCharacterNaviage(1)}
             className="hover:cursor-pointer hover:text-orange-500"
